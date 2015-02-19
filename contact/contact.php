@@ -28,7 +28,7 @@ if($post) {
       {
       $transport = Swift_SmtpTransport::newInstance('smtp.live.com',587,'tls')
                    ->setUsername('robot@inglobe.com.ar')
-                   ->setPassword('im2010na');
+                   ->setPassword('inglobe2014');
        
         //Creamos el mailer pasándole el transport con la configuración de gmail
           $mailer = Swift_Mailer::newInstance($transport);
