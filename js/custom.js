@@ -143,7 +143,7 @@ jQuery(document).ready(function($) {
 				'centerOnScroll':true,
 				beforeShow: function () {
 					this.title = $(this.element).attr('title');
-					this.title = '<h4>' + this.title + '</h4>' + '<p>' + $(this.element).parent().find('img').attr('alt') + '<a href=' + $(this.element).parent().find('div').attr('alt') + '> Link</a>' +  '</p>';
+					this.title = '<h4>' + this.title + '</h4>' + '<p>' + $(this.element).parent().find('img').attr('alt') + '<a href=' + $(this.element).parent().find('div').attr('alt') + '>' + this.title + '</a>' +  '</p>';
 				}
 				//helpers : {
 				//	title : { type: 'inside' },
