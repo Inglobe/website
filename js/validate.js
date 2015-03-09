@@ -88,7 +88,7 @@ jQuery(document).ready(function($) {
 			   $("#cargando").removeClass("hide");
 			   $.ajax({
 			   type: "POST",
-			   url: "http://inglobe.com.ar/contact/contact.php",
+			   url: "https://inglobe.com.ar/contact/contact.php",
 			   data: str,
 			   success: function(msg){
 			$("#sendmessage").addClass("show");
