@@ -13,6 +13,50 @@ $(function(){
   
 });
 </script> 
+<!-- ADDING SLIDER TEST -->
+ <script type="text/javascript" src="js/brands/jssor.js"></script>
+    <script type="text/javascript" src="js/brands/jssor.slider.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            var options = {
+                $AutoPlay: true,                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+                $AutoPlaySteps: 1,                                  //[Optional] Steps to go for each navigation request (this options applys only when slideshow disabled), the default value is 1
+                $AutoPlayInterval: 0,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
+                $PauseOnHover: 4,                               //[Optional] Whether to pause when mouse over if a slider is auto playing, 0 no pause, 1 pause for desktop, 2 pause for touch device, 3 pause for desktop and touch device, 4 freeze for desktop, 8 freeze for touch device, 12 freeze for desktop and touch device, default value is 1
+
+                $ArrowKeyNavigation: true,   			            //[Optional] Allows keyboard (arrow key) navigation or not, default value is false
+                $SlideEasing: $JssorEasing$.$EaseLinear,          //[Optional] Specifies easing for right to left animation, default value is $JssorEasing$.$EaseOutQuad
+                $SlideDuration: 5500,                                //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+                $MinDragOffsetToSlide: 20,                          //[Optional] Minimum drag offset to trigger slide , default value is 20
+                $SlideWidth: 200,                                   //[Optional] Width of every slide in pixels, default value is width of 'slides' container
+                //$SlideHeight: 100,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
+                $SlideSpacing: 40, 					                //[Optional] Space between each slide in pixels, default value is 0
+                $DisplayPieces: 7,                                  //[Optional] Number of pieces to display (the slideshow would be disabled if the value is set to greater than 1), the default value is 1
+                $ParkingPosition: 0,                              //[Optional] The offset position to park slide (this options applys only when slideshow disabled), default value is 0.
+                $UISearchMode: 1,                                   //[Optional] The way (0 parellel, 1 recursive, default value is 1) to search UI components (slides container, loading screen, navigator container, arrow navigator container, thumbnail navigator container etc).
+                $PlayOrientation: 1,                                //[Optional] Orientation to play slide (for auto play, navigation), 1 horizental, 2 vertical, 5 horizental reverse, 6 vertical reverse, default value is 1
+                $DragOrientation: 1                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+            };
+
+            var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+
+            //responsive code begin
+            //you can remove responsive code if you don't want the slider scales while window resizes
+            function ScaleSlider() {
+                var bodyWidth = document.body.clientWidth;
+                if (bodyWidth)
+                    jssor_slider1.$ScaleWidth(Math.min(bodyWidth, 1170));
+                else
+                    window.setTimeout(ScaleSlider, 30);
+            }
+            ScaleSlider();
+
+            $(window).bind("load", ScaleSlider);
+            $(window).bind("resize", ScaleSlider);
+            $(window).bind("orientationchange", ScaleSlider);
+            //responsive code end
+        });
+    </script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="" />
@@ -243,162 +287,203 @@ $(function(){
 		</div>
 
 		<!-- end divider -->
+  
 		<!-- Portfolio Projects -->
-		<div class="row">
+		<div class="row" style="margin-top:2em;">
 			<div class="span12">
-				<h4 class="heading">Algunos de nuestros <strong>trabajos</strong> más recientes</h4>
+				<h4 class="heading">Algunos de nuestros <strong>Clientes</strong></h4>
 				<div class="row">
 					<section id="projects">
-					<ul id="thumbs" class="portfolio">
+						  <!-- Jssor Slider Begin -->
+						    <!-- You can move inline styles to css file or css block. -->
+						    <div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 1170px; height: 200px; overflow: hidden; margin-left: auto;
+						margin-right: auto;">
+						
+						        <!-- Loading Screen -->
+						        <div u="loading" style="position: absolute; top: 0px; left: 0px;">
+						            <div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;
+						                background-color: #000; top: 0px; left: 0px;width: 100%;height:100%;">
+						            </div>
+						            <div style="position: absolute; display: block; background: url(img/cargando.gif) no-repeat center center;
+						                top: 0px; left: 0px;width: 100%;height:100%;">
+						            </div>
+						        </div>
+						
+						        <!-- Slides Container -->
+						        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1170px; height: 200px; overflow: hidden;">
+						            <div><a href="portfolio-2cols.html"><img u="image" alt="Rombo Velox" src="img/logo/logo-01.png" /></a></div>
+						            <div><a href="portfolio-2cols.html"><img u="image" alt="Tarjeta Naranja" src="img/logo/logo-02.png" /></a></div>
+						            <div><a href="portfolio-2cols.html"><img u="image" alt="Transmeco" src="img/logo/logo-03.png" /></a></div>
+						            <div><a href="portfolio-2cols.html"><img u="image" alt="Aldea Hostel" src="img/logo/logo-04.png" /></a></div>
+						            <div><a href="portfolio-2cols.html"><img u="image" alt="Juan Artesano" src="img/logo/logo-05.png" /></a></div>
+						            <div><a href="portfolio-2cols.html"><img u="image" alt="Silenzio" src="img/logo/logo-06.png" /></a></div>
+						            <div><a href="portfolio-2cols.html"><img u="image" alt="Ohio University" src="img/logo/logo-07.png" /></a></div>
+						            <div><a href="portfolio-2cols.html"><img u="image" alt="Promedon" src="img/logo/logo-08.png" /></a></div>
+						            <div><a href="portfolio-2cols.html"><img u="image" alt="Romulo Cerutti" src="img/logo/logo-09.png" /></a></div>
+						            <div><a href="portfolio-2cols.html"><img u="image" alt="Hola Verde" src="img/logo/logo-10.png" /></a></div>
+						            <div><a href="portfolio-2cols.html"><img u="image" alt="Agropoints" src="img/logo/logo-11.png" /></a></div>
+						            <div><a href="portfolio-2cols.html"><img u="image" alt="Dynamis" src="img/logo/logo-12.png" /></a></div>
+						            <div><a href="portfolio-2cols.html"><img u="image" alt="Montura Leathers" src="img/logo/logo-13.png" /></a></div>
+						            <div><a href="portfolio-2cols.html"><img u="image" alt="Augusto Rubio" src="img/logo/logo-14.png" /></a></div>
+						            <div><a href="portfolio-2cols.html"><img u="image" alt="Translation Back Office" src="img/logo/logo-15.png" /></a></div>
+						            <div><a href="portfolio-2cols.html"><img u="image" alt="Tomas & Anouk" src="img/logo/logo-16.png" /></a></div>
+						            <div><a href="portfolio-2cols.html"><img u="image" alt="Atins Kite Boarding" src="img/logo/logo-17.png" /></a></div>
+						
+						        </div>
+						        
+						    </div>
+						    <!-- Jssor Slider End -->
+						
+					<!--<ul id="thumbs" class="portfolio">-->
 						<!-- Item Project and Filter Name -->
-						<li class="item-thumbs span3 design" data-id="id-0" data-type="web">
+						<!--<li class="item-thumbs span3 design" data-id="id-0" data-type="web"> -->
 						<!-- Fancybox - Gallery Enabled - Title - Full Image -->						
-						<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Romulo Cerutti Ecommerce" href="img/works/full/image-15-full.jpg">
+						<!--<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Romulo Cerutti Ecommerce" href="img/works/full/image-15-full.jpg">
 						<span class="overlay-img"></span>
 						<span class="overlay-img-thumb font-icon-plus"></span>
-						</a>
+						</a>-->
 						<!-- Thumb Image and Description -->
-						<img src="img/works/thumbs/image-15.jpg" alt="www.romulocerutti-case.com.ar "/>
+						<!--<img src="img/works/thumbs/image-15.jpg" alt="www.romulocerutti-case.com.ar "/>
 						<div alt="http://www.romulocerutti-case.com.ar"></div>
-						</li>
+						</li>-->
 						<!-- End Item Project -->
 						<!-- Item Project and Filter Name -->
-						<li class="item-thumbs span3 design" data-id="id-0" data-type="web">
+						<!--<li class="item-thumbs span3 design" data-id="id-0" data-type="web">-->
 						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
-						<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Hola Verde" href="img/works/full/image-16-full.jpg">
+						<!--<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Hola Verde" href="img/works/full/image-16-full.jpg">
 						<span class="overlay-img"></span>
 						<span class="overlay-img-thumb font-icon-plus"></span>
-						</a>
+						</a>-->
 						<!-- Thumb Image and Description -->
-						<img src="img/works/thumbs/image-16.jpg" alt="www.holaverde.com.ar "/>
+						<!-- <img src="img/works/thumbs/image-16.jpg" alt="www.holaverde.com.ar "/>
 						<div alt="http://holaverde.com.ar"></div>
-						</li>
+						</li>-->
 						<!-- End Item Project -->
 						<!-- Item Project and Filter Name -->
-						<li class="item-thumbs span3 design" data-id="id-0" data-type="web">
+						<!--<li class="item-thumbs span3 design" data-id="id-0" data-type="web">-->
 						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
-						<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Dynamis Website" href="img/works/full/image-01-full.jpg">
+						<!-- <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Dynamis Website" href="img/works/full/image-01-full.jpg">
 						<span class="overlay-img"></span>
 						<span class="overlay-img-thumb font-icon-plus"></span>
-						</a>
+						</a> -->
 						<!-- Thumb Image and Description -->
-						<img src="img/works/thumbs/image-01.jpg" alt="www.dynamis.pro "/>
+						<!--<img src="img/works/thumbs/image-01.jpg" alt="www.dynamis.pro "/>
 						<div alt="http://www.dynamis.pro"></div>
-						</li>
+						</li> -->
 						<!-- End Item Project -->
 						<!-- Item Project and Filter Name -->
-						<li class="item-thumbs span3 design" data-id="id-0" data-type="web">
+						<!--<li class="item-thumbs span3 design" data-id="id-0" data-type="web">-->
 						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
-						<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Agropoints" href="img/works/full/image-18-full.jpg">
+						<!--<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Agropoints" href="img/works/full/image-18-full.jpg">
 						<span class="overlay-img"></span>
 						<span class="overlay-img-thumb font-icon-plus"></span>
-						</a>
+						</a>-->
 						<!-- Thumb Image and Description -->
-						<img src="img/works/thumbs/image-18.jpg" alt="www.agropoints.com "/>
+						<!--<img src="img/works/thumbs/image-18.jpg" alt="www.agropoints.com "/>
 						<div alt="http://www.agropoints.com"></div>
-						</li>
+						</li>-->
 						<!-- End Item Project -->
 						<!-- Item Project and Filter Name -->
-						<li class="item-thumbs span3 design" data-id="id-1" data-type="icon">
+						<!-- <li class="item-thumbs span3 design" data-id="id-1" data-type="icon"> -->
 						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
-						<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Juan Artesano" href="img/works/full/juan.png"> <span class="overlay-img"></span>
+						<!--<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Juan Artesano" href="img/works/full/juan.png"> <span class="overlay-img"></span>
 						<span class="overlay-img-thumb font-icon-plus"></span>
-						</a>
+						</a>-->
 						<!-- Thumb Image and Description -->
-						<img src="img/works/thumbs/juan.png" alt="www.juanartesano.com"/>
+						<!--<img src="img/works/thumbs/juan.png" alt="www.juanartesano.com"/>
 						<div alt="https://juanartesano.com"></div>
-						</li>
+						</li>-->
 						<!-- End Item Project -->
 						<!-- Item Project and Filter Name -->
-						<li class="item-thumbs span3 photography" data-id="id-2" data-type="illustrator">
+						<!--<li class="item-thumbs span3 photography" data-id="id-2" data-type="illustrator">-->
 						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
-						<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Montura Cueros" href="img/works/full/image-07-full.jpg">
+						<!--<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Montura Cueros" href="img/works/full/image-07-full.jpg">
 						<span class="overlay-img"></span>
 						<span class="overlay-img-thumb font-icon-plus"></span>
-						</a>
+						</a>-->
 						<!-- Thumb Image and Description -->
-						<img src="img/works/thumbs/image-07.jpg" alt="Implementación de sistema de gestión Open Source. "/>
+						<!-- <img src="img/works/thumbs/image-07.jpg" alt="Implementación de sistema de gestión Open Source. "/>
 						<div alt="https://www.facebook.com/MonturaLeather"></div>
-						</li>
+						</li>-->
 						<!-- End Item Project -->
 						<!-- Item Project and Filter Name -->
-						<li class="item-thumbs span3 photography" data-id="id-2" data-type="illustrator">
+						<!--<li class="item-thumbs span3 photography" data-id="id-2" data-type="illustrator">-->
 						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
-						<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Augusto Rubio Motors" href="img/works/full/image-04-full.jpg">
+						<!--<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Augusto Rubio Motors" href="img/works/full/image-04-full.jpg">
 						<span class="overlay-img"></span>
 						<span class="overlay-img-thumb font-icon-plus"></span>
-						</a>
+						</a>-->
 						<!-- Thumb Image and Description -->
-						<img src="img/works/thumbs/image-04.jpg" alt="www.armweb.com.ar "/>
+						<!-- <img src="img/works/thumbs/image-04.jpg" alt="www.armweb.com.ar "/>
 						<div alt="https://www.armweb.com.ar"></div>
-						</li>
+						</li>-->
 						<!-- End Item Project -->
 						<!-- Item Project and Filter Name -->
-						<li class="item-thumbs span3 photography" data-id="id-4" data-type="web">
+						<!--<li class="item-thumbs span3 photography" data-id="id-4" data-type="web"> -->
 						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
-						<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Translation Back Office" href="img/works/full/image-05-full.jpg">
+						<!--<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Translation Back Office" href="img/works/full/image-05-full.jpg">
 						<span class="overlay-img"></span>
 						<span class="overlay-img-thumb font-icon-plus"></span>
-						</a>
+						</a>-->
 						<!-- Thumb Image and Description -->
-						<img src="img/works/thumbs/image-05.jpg" alt="www.translationbackoffice.com "/>
+						<!--<img src="img/works/thumbs/image-05.jpg" alt="www.translationbackoffice.com "/>
 						<div alt="https://www.translationbackoffice.com"></div>
 						</li>
-						<li class="item-thumbs span3 photography" data-id="id-11" data-type="web graphic">						
+						<li class="item-thumbs span3 photography" data-id="id-11" data-type="web graphic">		-->				
 						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
-						<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Tomas y Anouk" href="img/works/full/image-13-full.jpg">
+						<!--<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Tomas y Anouk" href="img/works/full/image-13-full.jpg">
 						<span class="overlay-img"></span>
 						<span class="overlay-img-thumb font-icon-plus"></span>
-						</a>
+						</a>-->
 						<!-- Thumb Image and Description -->
-						<img src="img/works/thumbs/image-13.jpg" alt="Implentación de OpenErp.</br> Implementación de plataforma de e-commerce."/>
+						<!--<img src="img/works/thumbs/image-13.jpg" alt="Implentación de OpenErp.</br> Implementación de plataforma de e-commerce."/>
 						<div alt="http://www.tomasanouk.com"></div>							
-						</li>
+						</li>-->
 						<!-- Item Project and Filter Name -->
-						<li class="item-thumbs span3 photography" data-id="id-2" data-type="illustrator">
+						<!--<li class="item-thumbs span3 photography" data-id="id-2" data-type="illustrator">-->
 						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
-						<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Universidad de Ohio" href="img/works/full/image-12-full.jpg">
+						<!--<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Universidad de Ohio" href="img/works/full/image-12-full.jpg">
 						<span class="overlay-img"></span>
 						<span class="overlay-img-thumb font-icon-plus"></span>
-						</a>
+						</a>-->
 						<!-- Thumb Image and Description -->
-						<img src="img/works/thumbs/image-12.jpg" alt="Desarrollo de aplicación móvil "/>
+						<!--<img src="img/works/thumbs/image-12.jpg" alt="Desarrollo de aplicación móvil "/>
 						<div alt="http://ohio.edu"></div>
-						</li>
+						</li>-->
 						<!-- End Item Project -->
 						<!-- Item Project and Filter Name -->
-						<li class="item-thumbs span3 design" data-id="id-0" data-type="web">
+						<!--<li class="item-thumbs span3 design" data-id="id-0" data-type="web">-->
 						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
-						<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Silenzio" href="img/works/full/silenzio.png">
+						<!--<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Silenzio" href="img/works/full/silenzio.png">
 						<span class="overlay-img"></span>
 						<span class="overlay-img-thumb font-icon-plus"></span>
-						</a>
+						</a>-->
 						<!-- Thumb Image and Description -->
-						<img src="img/works/thumbs/silenzio.png" alt="www.silenzio.com.ar "/>
+						<!--<img src="img/works/thumbs/silenzio.png" alt="www.silenzio.com.ar "/>
 						<div alt="http://www.silenzio.com.ar"></div>
-						</li>
+						</li>-->
 						<!-- End Item Project -->
 						<!-- Item Project and Filter Name -->
-						<li class="item-thumbs span3 design" data-id="id-0" data-type="web">
+						<!--<li class="item-thumbs span3 design" data-id="id-0" data-type="web">-->
 							<!-- Fancybox - Gallery Enabled - Title - Full Image -->
-							 <a class="hover-wrap fancybox" data-type="iframe" data-fancybox-group="gallery" title="Atins Kitesurf" href="img/works/full/image-08-full.jpg">
+							<!-- <a class="hover-wrap fancybox" data-type="iframe" data-fancybox-group="gallery" title="Atins Kitesurf" href="img/works/full/image-08-full.jpg">
 								<span class="overlay-img"></span>
 								<span class="overlay-img-thumb font-icon-plus"></span>
-							</a>
+							</a>-->
 							<!-- Thumb Image and Description -->
-							<img src="img/works/thumbs/image-08.jpg" alt="www.atinskitesurf.com "/>
+							<!--<img src="img/works/thumbs/image-08.jpg" alt="www.atinskitesurf.com "/>
 							<div alt="http://www.atinskitesurf.com"></div>
 						</li>
 					</ul>
 					</section>					
 				</div>
-			</div>
+			</div>-->
 
 			<!-- <div class="span12">
 				<h4 class="heading">Trabajos en Apple iOS para mobiles</h4>
 				<div class="row">
 					<ul id="thumbs" class="portfolio">
-						<li class="item-thumbs span3 design" data-id="id-0" data-type="web">
+						<li class="item-thumbs span3 design" data-id="id-0" data-type="web">-->
 							<!-- Fancybox - Gallery Enabled - Title - Full Image -->
 							<!-- <a class="hover-wrap fancybox fancy-youtube" href="http://www.youtube.com/watch?v=iLbEGa_Rpno">
 								<span class="overlay-img"></span>
