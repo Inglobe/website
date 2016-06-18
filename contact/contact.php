@@ -13,7 +13,7 @@ $post = (!empty($_POST)) ? true : false;
 if($post) {
 
     // Enter the email where you want to receive the message
-    $emailTo = 'nacho22martin@gmail.com';
+    $emailTo = 'contact@inglobe.com.ar';
 
     $name = trim($_POST['name']);
     $email = trim($_POST['email']);
